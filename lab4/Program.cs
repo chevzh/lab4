@@ -36,11 +36,11 @@ namespace lab4
 
 
             Set<int> list1 = new Set<int>() { 8,9,10};
-            Set<int> list2 = new Set<int>() { 8};
-            Set<int> list3 = new Set<int>();
-            list3 = list1.Intersect(list2).ToList();
+            Set<int> list2 = new Set<int>() { 8,9};
+            
+            Set<int>list = list1 + list2;
 
-            foreach (var el in list3)
+            foreach (var el in list)
             {
                 Console.WriteLine(el);
             }

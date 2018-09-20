@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    partial class Set<T> : IEnumerable<T>
+    public partial class Set<T> : IEnumerable<T>
     {
         private List<T> _items;
 
@@ -62,6 +62,6 @@ namespace lab4
             return _items.GetEnumerator();
         }
 
-       
+      
     }
 }
