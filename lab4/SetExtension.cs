@@ -13,7 +13,28 @@ namespace lab4
             return new Set<T>(source);
         }
 
+        public static Set<string> AddPoint(this Set<string> set)
+        {
+            Set<string> resultSet = new Set<string>();
 
+            foreach (var item in set)
+            {
+                resultSet.Add(item + ".");               
+            }
 
+            return resultSet;
+        }
+
+        public static Set<int> DeleteZeroElements(this Set<int> set) 
+        {
+            Set<int> resultSet = new Set<int>();
+            foreach (var item in set)
+            {
+                if (item != 0)
+                    resultSet.Add(item);
+            }
+
+            return resultSet;
+        }
     }
 }

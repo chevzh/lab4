@@ -11,6 +11,17 @@ namespace lab4
     {
         private List<T> _items;
 
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _items.GetEnumerator();
+        }
+
         public Set()
         {
             _items = new List<T>();
@@ -24,8 +35,7 @@ namespace lab4
         public void Add(T item)
         {
             if (item == null) throw new ArgumentNullException();
-            if (_items.Contains(item)) throw new Exception();//добавить своё исключение!!
-            
+                        
             _items.Add(item);
         }
 
@@ -52,16 +62,23 @@ namespace lab4
             return resultSet;
         }
 
-        public IEnumerator<T> GetEnumerator()
+       
+        public bool IsSubset(Set<T> set)
         {
-            return _items.GetEnumerator();
+            //вернёт true, если set2 подмножество set1
+            return !this.Except(set).Any();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _items.GetEnumerator();
-        }
 
+        //public bool Equals(Set<T> set)
+        //{
+        //    if (set == null)
+        //        return false;
+        //    if (this.Count() != set.Count())
+        //        return false;
+
+        //    return set.SequenceEqual(this);
+        //} 
       
     }
 }
