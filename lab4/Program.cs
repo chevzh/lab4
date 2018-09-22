@@ -10,53 +10,87 @@ namespace lab4
     {
         static void Main(string[] args)
         {
+            #region удаление элемента и добавление точки к строкам
             Set<string> set1 = new Set<string>
             {
-                "123",
-                "qq"
+                "123.",
+                "qq",
+                "string",
+                "another string"
             };
-            //set.Add(null);
+
+            Console.WriteLine("Множество set1:");
+            set1.Print();
 
 
+            string str;
+            Console.WriteLine("Введите элемент для удаления");
+            str = Console.ReadLine();
+            Set<string> set2 = new Set<string>(set1 - str);
 
-            Set<string> set2 = new Set<string>(set1.AddPoint());
-            set2.Add("123");
-           
-            foreach (var el in set2)
+            Console.WriteLine("Множество без элемента " + '"' + str + "\" :");
+            set2.Print();
+
+            Console.WriteLine("Добавление точки строкам:");
+            Set<string> pointSet = new Set<string>(set2.AddPoint());
+            pointSet.Print();
+            #endregion
+
+            Set<int> set3 = new Set<int>() { 8, 9};
+            Set<int> set4 = new Set<int>() { 8, 9, 0, 11, 0 };
+            Set<int> resultSet = new Set<int>();
+
+
+            Console.WriteLine("Первое множество:");
+            set3.Print();
+            Console.WriteLine("Второе множество");
+            set4.Print();
+
+
+            Console.WriteLine("Пересечение множеств(*):");            
+            resultSet = set3 * set4;
+            resultSet.Print();
+
+
+            if (set4 > set3)
             {
-                Console.WriteLine(el);
+                Console.WriteLine("Первое множество является подмножеством второго множества");
+            }
+            else
+            {
+                Console.WriteLine("Первое множество не является подмножеством второго множества");
             }
 
+
+            if(set3 < set4)
+            {
+                Console.WriteLine("Множества равны");
+            }
+            else
+            {
+                Console.WriteLine("Множества не равны");
+            }
+
+
+            Console.WriteLine("Объединение множеств:");
+            resultSet = set3 & set4;
+            resultSet.Print();
             
-            Console.WriteLine("------------------");
-            Set<string> newSet = set1 - "qq";
-            
-            foreach (var el in newSet)
-            {
-                Console.WriteLine(el);
-            }
 
-            foreach (var el in set1)
-            {
-                Console.WriteLine(el);
-            }
+            Console.WriteLine("Удаление нулей из второго множества:");
+            resultSet = set4.DeleteZeroElements();
+            resultSet.Print();
 
+            //Console.WriteLine("Текущее время:");
+            Set<int>.Date  date = new Set<int>.Date();
+            Set<int>.Owner owner = new Set<int>.Owner();
 
-            Set<int> list1 = new Set<int>() { 8,9,10};
-            Set<int> list2 = new Set<int>() { 8,9,0,11,0};
+            Console.WriteLine(owner.OwnerName);
+            Console.WriteLine(owner.OwnerCompany);
+            Console.WriteLine(owner.Id);
 
-            Set<int> list3 = new Set<int>(list2.DeleteZeroElements());
-
-            Set<int>list = list1 & list3;
-
-            foreach (var el in list)
-            {
-                Console.WriteLine(el);
-            }
-
-            
-            Console.WriteLine(set1 > set2);
-            Console.WriteLine(set2.IsSubset(set1));
+            //метоы расширение String
+            Console.WriteLine(str.AddPoint());
 
         }
     }

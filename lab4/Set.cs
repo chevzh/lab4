@@ -42,6 +42,7 @@ namespace lab4
         public void Remove(T item)
         {
             if (item == null) throw new ArgumentNullException();
+            if (!_items.Contains(item)) throw new Exception(); // дописать исключение
             _items.Remove(item);
         }
 
@@ -65,7 +66,7 @@ namespace lab4
        
         public bool IsSubset(Set<T> set)
         {
-            //вернёт true, если set2 подмножество set1
+            //вернёт true, если set подмножество this
             return !this.Except(set).Any();
         }
 
@@ -79,6 +80,43 @@ namespace lab4
 
         //    return set.SequenceEqual(this);
         //} 
-      
+
+        public void Print()
+        {
+            int counter = 1;
+          
+            foreach (var item in this)
+            {              
+               
+                if(counter == this.Count())
+                {
+                    Console.Write(item + ";\n");
+                }
+                else
+                {
+                    Console.Write(item + ", ");
+                    counter++;
+                }
+                
+            }
+        }
+
+
+        //вложенный класс Date
+        public class Date
+        {
+            public Date()
+            {
+                Console.WriteLine(DateTime.Now);
+            }
+        }
+
+        public class Owner
+        {
+            public int Id { get; } = 06041996;     
+            public string OwnerName { get; } = "Eugene Chevzhik";
+            public string OwnerCompany { get; } = "Dogman Studios";
+        }   
+
     }
 }

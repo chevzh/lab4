@@ -19,9 +19,16 @@ namespace lab4
 
             foreach (var item in set)
             {
-                resultSet.Add(item + ".");               
+                if(item.ElementAt(item.Length-1) != '.')
+                {
+                    resultSet.Add(item.AddPoint());
+                }
+                else
+                {
+                    resultSet.Add(item);
+                }
+                               
             }
-
             return resultSet;
         }
 
@@ -36,5 +43,13 @@ namespace lab4
 
             return resultSet;
         }
+
+
+        public static string AddPoint(this string str)
+        {
+            string resultString = str + ".";
+            return resultString;
+        }
+
     }
 }
