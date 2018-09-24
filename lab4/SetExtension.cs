@@ -16,7 +16,7 @@ namespace lab4
         public static Set<string> AddPoint(this Set<string> set)
         {
             Set<string> resultSet = new Set<string>();
-
+            
             foreach (var item in set)
             {
                 if(item.ElementAt(item.Length-1) != '.')

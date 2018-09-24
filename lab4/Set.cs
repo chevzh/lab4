@@ -11,7 +11,6 @@ namespace lab4
     {
         private List<T> _items;
 
-
         public IEnumerator<T> GetEnumerator()
         {
             return _items.GetEnumerator();
@@ -103,19 +102,26 @@ namespace lab4
 
 
         //вложенный класс Date
-        public class Date
+        class Date
         {
+            public string date;
             public Date()
             {
-                Console.WriteLine(DateTime.Now);
+                date = DateTime.Now.ToString();
             }
         }
 
         public class Owner
         {
+            Date date = new Date();
             public int Id { get; } = 06041996;     
             public string OwnerName { get; } = "Eugene Chevzhik";
-            public string OwnerCompany { get; } = "Dogman Studios";
+            public string OwnerCompany { get; } = "123 432";
+
+            public void Print()
+            {
+                Console.Write(OwnerName + " " + date.date + "\n");
+            }
         }   
 
     }

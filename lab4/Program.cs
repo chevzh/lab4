@@ -82,15 +82,11 @@ namespace lab4
             resultSet.Print();
 
             //Console.WriteLine("Текущее время:");
-            Set<int>.Date  date = new Set<int>.Date();
             Set<int>.Owner owner = new Set<int>.Owner();
 
-            Console.WriteLine(owner.OwnerName);
-            Console.WriteLine(owner.OwnerCompany);
-            Console.WriteLine(owner.Id);
+            owner.Print();
 
-            //метоы расширение String
-            Console.WriteLine(str.AddPoint());
+            
 
         }
     }
